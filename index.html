@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>Phaser - Making your first game, part 1</title>
+	<title>Phaser - Making your first game</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
     <style type="text/css">
         body {
@@ -72,7 +72,7 @@ function create() {
   stars = game.add.group();
   stars.enableBody = true;
   //  Here we'll create 12 of them evenly spaced apart
-  for (var i = 0; i < 1200; i++) {
+  for (var i = 0; i < 12; i++) {
     //  Create a star inside of the 'stars' group
     var star = stars.create((800 * Math.random()), 2, 'star');
     star.body.collideWorldBounds = true;
@@ -121,11 +121,9 @@ function update() {
 function collectStar (player, star) {
   // Removes the star from the screen
   star.kill();
-  // var width = Math.min(player.scale.x * 1.05, 3)
-  // var height = Math.min(player.scale.y * 1.05, 3)
-	var width = Math.min(player.scale.x * 1.05, 10)
-//  var height = Math.min(player.scale.y * 1.05, 3)
-  player.scale.setTo(width, 1)
+  var height = Math.min(player.scale.y * 1.05, 5)
+	var width = Math.min(player.scale.x * 1.05, 5)
+  player.scale.setTo(width, height)
   //  Add and update the score
   score += 10;
   scoreText.text = 'Score: ' + score;
